@@ -5,36 +5,33 @@
 
 body{
     background-color: #121212;
+    color: #FF10F0;
 }
 
 h1{
-    color: #00ff00;
+    
     font-family: dotoBold;
-    text-shadow: 2.3px 2.3px green;
+    text-shadow: 2.3px 2.3px #AA336A;
 }
 
 h6{
-    color: #00ff00;
     font-family: dotoBold;
-    text-shadow: 5px 5px green;
+   // text-shadow: 5px 5px #AA336A;
 }
 .ulMain {
     list-style-type: none;
     padding-left: 0;
-    color: #00ff00;
     font-size: larger;
     font-family: dotoBold
 }
 
 .ulMain li::before {
-    content: "/bhill/Portfolio/> ";
-    color: #80FF00;
+    content: "/liv/Portfolio/> ";
     font-family: dotoBold
 }
 .ulWorkHistory {
     list-style-type: none;
     padding-left: 0;
-    color: #00ff00;
     font-size: larger;
     font-family: dotoBold
 
@@ -42,14 +39,7 @@ h6{
 
 .ulWorkHistory li::before {
     content: var(--w);
-    color: #80FF00;
     font-family: dotoBold
-}
-pre{
-    color: #00ff00;
-}
-label{
-    color: #00ff00;
 }
 
 .headerDiv{
@@ -59,16 +49,16 @@ label{
 .horizontalStackDiv{
     display: flex;
     flex-direction: row;
-    text-shadow: 5px 5px green;
+    align-content: center;
+    align-items: center;
+    width: 100vw;
 }
 
 .type {
     display:inline-flex;
-    color: #00ff00;
 }
 
 .type span {
-    color: #00ff00;
     word-break: break-all;
     height: 1.2em;
     width:0%;
