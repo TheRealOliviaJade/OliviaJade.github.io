@@ -2,6 +2,8 @@
   <meta charset="utf-8">
   <head>
       <link rel="stylesheet" type="text/css" href="Styles/styles.css">
+      <script src="Scripts/functions.js" defer></script>
+      
   </head>
   <body>
   <div class=headerDiv>
@@ -57,6 +59,11 @@ Y8,          ,8P   I8dP    88     d8"Yb   88bg  88    dP"  "Y8I        `"Y88888 
                   </span>
               </span>
           </li>
+          <li>
+              <span class="type" style="--i: 3;"><span>
+                  Years of professional experience: <span id="yearsExp"></span>
+              </span></span>
+          </li>
       </ul>
   </div>
     </br>
@@ -109,14 +116,14 @@ Y8,          ,8P   I8dP    88     d8"Yb   88bg  88    dP"  "Y8I        `"Y88888 
              \______/   \__|\__|  
         </pre>                                
     </div>
-    </ br>
+    <br/>
   <pre>
 ==========================================================================================================================
         <h1>Qualifications</h1>
 ==========================================================================================================================
   </pre>
   <div>
-      <ul class="ulMain">
+      <ul class="ulQualifications">
           <li><span class="type" style="--i: 5;"><span>Microsoft Certified Solutions Developer (2019 - CTU)</span></span></li>
           <li><span class="type" style="--i: 5;"><span>Microsoft Certified Solutions Associate (2019 - CTU)</span></span></li>
           <li><span class="type" style="--i: 5;"><span>Certificate: Application and Software Development (2019 - CTU)</span></span></li>
@@ -134,7 +141,7 @@ Y8,          ,8P   I8dP    88     d8"Yb   88bg  88    dP"  "Y8I        `"Y88888 
   <div>
       <ul class="ulWorkHistory">
           <li style="--w: 'Oct 2023-Current >'; --i: 5">
-              <span class="type"><span style="text-shadow: 2.4px 2.4px #AA336A;">BBEnergy (Pty) Ltd</span></span>
+              <span class="type"><span style="color: #33aa73 !important;">BBEnergy (Pty) Ltd</span></span>
               </br>
               <ul style="align-items: center">
                   <li style="--w: ''; --i: 5"><span class="type"><span>Maintaining and Scaling Bespoke Notification Service.</span></span></li>
@@ -148,28 +155,102 @@ Y8,          ,8P   I8dP    88     d8"Yb   88bg  88    dP"  "Y8I        `"Y88888 
           </li>
           </br>
           <li style="--w: 'Jul 2021-Oct 2023 >'; --i: 5">
-              <span class="type"><span style="text-shadow: 2.4px 2.4px #AA336A;">Thoughtware</span></span>
+              <span class="type"><span style="color: #33aa73 !important;">Thoughtware</span></span>
               </br>
               <ul style="align-items: center">
                   <li style="--w: ''; --i: 5"><span class="type"><span>Maintaining "FinanceApps", a Xamarin.Forms app at the time.</span></span></li>
                   <li style="--w: ''; --i: 5"><span class="type"><span>Laid the groundwork for the "FinanceApps" web portal. Built with Angular and Typescript.</span></span></li>
                   <li style="--w: ''; --i: 5"><span class="type"><span>Wrote a bespoke solution for inventory forecasting using machine learning.</span></span></li>
-                  <li style="--w: ''; --i: 5"><span class="type"><span>Maintaining and implementing features throughout business process. Including but not limited to integrating a barcode scanner to make stock taking easier.</span></span></li>
+                  <li style="--w: ''; --i: 5"><span class="type"><span>Maintaining and implementing features throughout business process.</span></span></li>
                   <li style="--w: ''; --i: 5"><span class="type"><span>General bug fixes and improvements.</span></span></li>
               </ul>
           </li>
           </br>
           <li style="--w: 'Apr 2021-Jul 2021 >'; --i: 5">
-              <span class="type"><span style="text-shadow: 2.4px 2.4px #AA336A;">Barman (Heidelberg Club)</span></span>
+              <span class="type"><span style="color: #33aa73 !important;">Barman (Heidelberg Club)</span></span>
           </li>
           <li style="--w: 'Apr 2021-Jul 2022 >'; --i: 5">
-              <span class="type"><span style="text-shadow: 2.4px 2.4px #AA336A;">Ad-Hoc Barman (Lezaar Wedding Venue)</span></span>
+              <span class="type"><span style="color: #33aa73 !important;">Ad-Hoc Barman (Lezaar Wedding Venue)</span></span>
           </li>
           <li style="--w: '2017-2020 >'; --i: 5">
-              <span class="type"><span style="text-shadow: 2.4px 2.4px #AA336A;">Waiter, Barman (Grill King Heidelberg)</span></span>
+              <span class="type"><span style="color: #33aa73 !important;">Waiter, Barman (Grill King Heidelberg)</span></span>
           </li>
         </ul>
 
+  </div>
+  </br>
+  <pre>
+==========================================================================================================================
+        <h1>Personal Projects</h1>
+==========================================================================================================================
+  </pre>
+  <div>
+      <ul class="ulProjects">
+          <li>
+              <span class="type" style="--i: 4; font-weight: bold; color: #33aa73 !important;">
+                  <span>DIY E-Reader</span>
+              </span>
+              <ul>
+                  <li><span class="type" style="--i: 4;"><span>Raspberry Pi-Pico core.</span> </span></li>
+                  <li><span class="type" style="--i: 4;"><span>4.2" Waveshare e-ink screen.</span> </span></li>
+                  <li><span class="type" style="--i: 4;"><span>SD Card reader module.</span> </span></li>
+                  <li><span class="type" style="--i: 4;"><span>Custom micropython firmware with "remember last page" functionality.</span> </span></li>
+                  <li><span class="type" style="--i: 4;"><span>Currently building menu/select book functionality.</span></span> </span></li>
+              </ul>
+              <br/>
+          </li>
+          <li>
+              <span class="type" style="--i: 4; font-weight: bold; color: #33aa73 !important;">
+                  <span>ConvertToText</span>
+              </span>
+              <ul>
+                  <li><span class="type" style="--i: 4;"><span>Custom C# Console application.</span> </span></li>
+                  <li><span class="type" style="--i: 4;"><span>Splits any .txt file into pages formatted to fit text comfortably on the 4.2" screen of my e-reader.</span> </span></li>
+                  <li><span class="type" style="--i: 4;"><span>Uses a custom algorithm to determine the optimal number of lines per page.</span> </span></li>
+              </ul>
+              <br/>
+          </li>
+          <li>
+              <span class="type" style="--i: 4; font-weight: bold; color: #33aa73 !important;">
+                  <span>TempleStore (Under Construction)</span>
+              </span>
+              <ul>
+                  <li><span class="type" style="--i: 4;"><span>Mobile app written in Expo with TypeScript.</span> </span></li>
+                  <li><span class="type" style="--i: 4;"><span>Purpose built to track my art sales.</span> </span></li>
+                  <li><span class="type" style="--i: 4;"><span>Integrates with my Azure hosted database.</span> </span></li>
+                  <li><span class="type" style="--i: 4;"><span>Custom statistics to track sales, inventory, and more.</span> </span></li>
+              </ul>
+              <br/>
+          </li>
+          <li>
+              <span class="type" style="--i: 4; font-weight: bold; color: #33aa73 !important;">
+                  <span>The Jade Temple (Under Construction)</span>
+              </span>
+              <ul>
+                  <li><span class="type" style="--i: 4;"><span>Art sales side hustle.</span> </span></li>
+              </ul>
+              <br/>
+          </li>
+          <li>
+              <span class="type" style="--i: 4; font-weight: bold; color: #33aa73 !important;">
+                  <span>My Homelab (formal name TBD)</span>
+              </span>
+              <ul>
+                  <li><span class="type" style="--i: 4;"><span>Home server.</span> </span></li>
+                  <li>
+                      <span class="type" style="--i: 4;">
+                          <span>Proxmox cluster with the following nodes:</span> 
+                      </span>
+                      <ul class="ulHomeLab">
+                          <li><span class="type" style="--i: 4;"><span>Pi-Hole to block ads at the network level.</span> </span></li>
+                          <li><span class="type" style="--i: 4;"><span>Jellyfin for personal media hosting.</span> </span></li>
+                          <li><span class="type" style="--i: 4;"><span>NAS for backup storage. (under construction)</span> </span></li>
+                      </ul>
+                  </li>
+              </ul>
+              <br/>
+          </li>
+      </ul>
   </div>
   </br>
   <pre>
@@ -178,17 +259,20 @@ Y8,          ,8P   I8dP    88     d8"Yb   88bg  88    dP"  "Y8I        `"Y88888 
 ==========================================================================================================================
   </pre>
   <div>
-      <ul class="ulMain">
+      <ul class="ulInterests">
           <li><span class="type" style="--i: 4;"><span>Dotnet</span></span></li>
           <li><span class="type" style="--i: 4;"><span>Linux</span></span></li>
+          <li><span class="type" style="--i: 4;"><span>Networking</span></span></li>
           <li><span class="type" style="--i: 4;"><span>Docker/Kubernetes</span></span></li>
           <li><span class="type" style="--i: 4;"><span>CLI/Terminal Emulators (Ghostty using ZSH with custom aliases and functions)</span></span></li>
+          <li><span class="type" style="--i: 4;"><span>Terminal Multiplexers (Zellij)</span></span></li>
           <li><span class="type" style="--i: 4;"><span>3D Printing</span></span></li>
-          <li><span class="type" style="--i: 4;"><span>Efficient text editing (Helix currently, learning EMACS)</span></span></li>
+          <li><span class="type" style="--i: 4;"><span>Efficient text editing (Helix, LaTeX, Vim)</span></span></li>
           <li><span class="type" style="--i: 4;"><span>Efficiency in general</span></span></li>
           <li><span class="type" style="--i: 4;"><span>Reading</span></span></li>
           <li><span class="type" style="--i: 4;"><span>Writing</span></span></li>
           <li><span class="type" style="--i: 4;"><span>Gaming</span></span></li>
+          <li><span class="type" style="--i: 4;"><span>Digital Art using Procreate</span></span></li>
       </ul>
   </div>
   </br>
@@ -222,5 +306,15 @@ Y8,          ,8P   I8dP    88     d8"Yb   88bg  88    dP"  "Y8I        `"Y88888 
           <li><span class="type" style="--i: 5;"><span>Empathy</span></span></li>
       </ul>
   </div>
+
+
+  <script>
+      window.onload = function () {
+          var currentDate = new Date();
+          var birthDate = new Date(2021, 7, 12);
+          var years = diff_years(currentDate, birthDate);
+          document.getElementById("yearsExp").innerHTML = years;
+      };
+  </script>
   </body>
 </html>

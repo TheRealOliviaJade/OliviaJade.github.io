@@ -5,7 +5,7 @@
 
 body{
     background-color: #121212;
-    color: #FF10F0;
+    color: #AA336A;
 }
 
 h1{
@@ -16,7 +16,7 @@ h1{
 
 h6{
     font-family: dotoBold;
-   // text-shadow: 5px 5px #AA336A;
+   
 }
 .ulMain {
     list-style-type: none;
@@ -27,8 +27,62 @@ h6{
 
 .ulMain li::before {
     content: "/liv/Portfolio/> ";
+    font-family: dotoBold;
+    color: #03F7EB;
+}
+
+.ulHomeLab {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: large;
     font-family: dotoBold
 }
+
+.ulHomeLab li::before {
+    content: "/liv/Portfolio/Homelab> ";
+    font-family: dotoBold;
+    color: #03F7EB;
+}
+
+.ulQualifications {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: large;
+    font-family: dotoBold
+}
+
+.ulQualifications li::before {
+    content: "/liv/Portfolio/Qualifications> ";
+    font-family: dotoBold;
+    color: #03F7EB;
+}
+
+.ulProjects {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: large;
+    font-family: dotoBold
+}
+
+.ulProjects li::before {
+    content: "/liv/Portfolio/Projects> ";
+    font-family: dotoBold;
+    color: #03F7EB;
+}
+
+.ulInterests {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: large;
+    font-family: dotoBold
+}
+
+.ulInterests li::before {
+    content: "/liv/Portfolio/Interests> ";
+    font-family: dotoBold;
+    color: #03F7EB;
+}
+
 .ulWorkHistory {
     list-style-type: none;
     padding-left: 0;
@@ -38,7 +92,8 @@ h6{
 }
 
 .ulWorkHistory li::before {
-    content: var(--w);
+    content: "/liv/Portfolio/WorkHistory> ";
+    color: #03F7EB;
     font-family: dotoBold
 }
 
