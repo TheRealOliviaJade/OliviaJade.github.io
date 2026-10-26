@@ -21,11 +21,9 @@ $$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |  $$ |      $$ | 
                                                                                                      \$$$$$$  |                              
                                                                                                       \______/                               
                                                                                                     </pre>
-<div class="horizontalStackDiv">
-   <pre>
-       オリビア・ジェイド
-   </pre>
-</div>
+<section class="tech-ascii-section" aria-label="Technology stack animation">
+        <canvas id="techAsciiCanvas" aria-hidden="true"></canvas>
+    </section>
 </h6>
     </div>
     <pre>
@@ -65,9 +63,7 @@ $$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |  $$ |      $$ | 
   </div>
     </br>
 
-    <section class="tech-ascii-section" aria-label="Technology stack animation">
-        <canvas id="techAsciiCanvas" aria-hidden="true"></canvas>
-    </section>
+    
     <br/>
   <pre>
 ==========================================================================================================================
@@ -262,6 +258,9 @@ $$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |  $$ |      $$ | 
 
 
   <style>
+    body{
+      padding: 15px
+    }
     /* A compact, transparent version of the CodePen effect. All styles are scoped
        to this section so the rest of the website keeps its existing appearance. */
     .tech-ascii-section {
@@ -275,6 +274,8 @@ $$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |  $$ |      $$ | 
     #techAsciiCanvas {
       display: block;
       width: 100%;
+      margin-left: 0;
+      box-sizing: border-box;
       height: 100%;
     }
 
@@ -296,7 +297,7 @@ $$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |  $$ |      $$ | 
       if (!ctx) return;
 
       // Edit this list to change the words that morph into one another.
-      const words = [".NET", "MAUI", "WPF", "SQL", "EXPO", "LINUX"];
+      const words = [".NET", "MAUI", "WPF", "SQL", "EXPO", "LINUX", "ASP.NET", "C#"];
       const ramp = " .:-=+*#%@";
       const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
       let width = 0, height = 0, dpr = 1, fontSize = 10, gap = 10;
@@ -312,7 +313,7 @@ $$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |  $$ |      $$ | 
         canvas.height = Math.round(height * dpr);
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         fontSize = width < 500 ? 9 : 10;
-        gap = fontSize * 1.05;
+        gap = fontSize * 1.02;
         cols = Math.ceil(width / gap) + 1;
         rows = Math.ceil(height / gap) + 1;
         cells = [];
@@ -326,30 +327,56 @@ $$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |  $$ |      $$ | 
         updateWordMap();
       }
 
-      function updateWordMap() {
-        if (!cols || !rows || !cells.length) return;
-        const offscreen = document.createElement("canvas");
-        // A higher-resolution word map keeps the central word legible in this compact slot.
-        const scale = 4;
-        offscreen.width = cols * scale;
-        offscreen.height = rows * scale;
-        const off = offscreen.getContext("2d", { willReadFrequently: true });
-        if (!off) return;
-        const word = words[wordIndex];
-        off.fillStyle = "#fff";
-        off.textAlign = "center";
-        off.textBaseline = "middle";
-        const size = Math.min(offscreen.width / (word.length * 0.68), offscreen.height * 0.8);
-        off.font = `800 ${size}px Arial, sans-serif`;
-        off.fillText(word, offscreen.width / 2, offscreen.height / 2);
-        const pixels = off.getImageData(0, 0, offscreen.width, offscreen.height).data;
-        for (let i = 0; i < cells.length; i++) {
-          const x = i % cols, y = Math.floor(i / cols);
-          const px = Math.min(offscreen.width - 1, Math.floor((x + 0.5) * scale));
-          const py = Math.min(offscreen.height - 1, Math.floor((y + 0.5) * scale));
-          cells[i].target = pixels[(py * offscreen.width + px) * 4 + 3] / 255;
-        }
-      }
+     function updateWordMap() {
+  if (!cols || !rows || !cells.length) return;
+
+  const offscreen = document.createElement("canvas");
+  const scale = 5;
+  offscreen.width = cols * scale;
+  offscreen.height = rows * scale;
+
+  const off = offscreen.getContext("2d", { willReadFrequently: true });
+  if (!off) return;
+
+  const word = words[wordIndex];
+
+  off.fillStyle = "#fff";
+  off.textAlign = "left";
+  off.textBaseline = "middle";
+
+  // Fit the word inside the canvas width.
+  const maxWidth = offscreen.width * 0.95;
+  const size = Math.min(
+    maxWidth / (word.length * 0.68),
+    offscreen.height * 0.8
+  );
+
+  off.font = `800 ${size}px Arial, sans-serif`;
+
+  // Anchor the word to the left edge with a small margin.
+  off.fillText(word, scale * 2, offscreen.height / 2, maxWidth);
+
+  const pixels = off.getImageData(
+    0, 0, offscreen.width, offscreen.height
+  ).data;
+
+  for (let i = 0; i < cells.length; i++) {
+    const x = i % cols;
+    const y = Math.floor(i / cols);
+
+    const px = Math.min(
+      offscreen.width - 1,
+      Math.floor((x + 0.5) * scale)
+    );
+    const py = Math.min(
+      offscreen.height - 1,
+      Math.floor((y + 0.5) * scale)
+    );
+
+    cells[i].target =
+      pixels[(py * offscreen.width + px) * 4 + 3] / 170;
+  }
+}
 
       function nextWord() {
         wordIndex = (wordIndex + 1) % words.length;
@@ -359,12 +386,12 @@ $$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |  $$ |      $$ | 
       function draw(now = performance.now()) {
         frame = null;
         if (!visible) return;
-        const dt = Math.min(32, now - lastTime || 16) / 16.67;
+        const dt = Math.min(32, now - lastTime || 16) / 10.67;
         lastTime = now;
         ctx.clearRect(0, 0, width, height); // Transparent: no CodePen background is drawn.
         ctx.font = `${fontSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
+       ctx.textAlign = "left";
+       ctx.textBaseline = "middle";
         const t = now * 0.001;
         for (const cell of cells) {
           let tx = cell.ox, ty = cell.oy;
@@ -405,7 +432,7 @@ $$$$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |\$$$$$$  |$$ |  $$ |      $$ | 
       resize();
       draw();
       if (!reducedMotion) {
-        wordTimer = window.setInterval(nextWord, 2600);
+        wordTimer = window.setInterval(nextWord, 1700);
       }
       window.addEventListener("resize", resize, { passive: true });
       if ("ResizeObserver" in window) new ResizeObserver(resize).observe(canvas);
